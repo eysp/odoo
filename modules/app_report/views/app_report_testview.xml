@@ -12,7 +12,7 @@
                     <field name="payment_amount"/> 
                       
                 </field>
-                <button name = "action_confirm" position="after">
+                <button name = "action_quotation_send" position="after">
                     <button name="test" string="Test" type="object"/>
                 </button>    
 
