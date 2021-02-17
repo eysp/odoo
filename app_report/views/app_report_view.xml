@@ -17,7 +17,6 @@
                 </field>
                 <button name="action_quotation_send" position="after">
                     <button string="test" name="create_sales_order" type="object"/>
-                    
                 </button>
          </field>
     </record>
