@@ -8,7 +8,7 @@
         'sale_management','website','account_accountant'
     ],    
     'data': [
-        'data/data.xml',
+        # 'data/data.xml',
         'reports/report_tax_invoice.xml',
         'reports/reports.xml',
         'views/account_report.xml',
