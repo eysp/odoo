@@ -13,6 +13,8 @@
                     <field name="description_1"/>
                     <field name="dealer_discount"/> 
                     <field name="check_it" string = "check it by view"/>
+                    <field name="result" />
+
 
                 </field>
                 <button name="action_quotation_send" position="after">
