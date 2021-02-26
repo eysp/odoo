@@ -10,7 +10,7 @@ class SaleOrder_Data(models.Model):
     description_1 = fields.Char(string = 'Description 1')
     dealer_discount = fields.Char(string = 'Dealer Discount1')
     check_it = fields.Boolean(string = 'check it', help= 'this is just to test booleean field')
-    result = fields.Float(string='result')
+    result = fields.Float(string='result' digit=(12,3))
     
     
 
