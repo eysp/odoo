@@ -47,13 +47,14 @@
     </record>  -->
 
     <record id="purchase_order_form" model="ir.ui.view">
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="name">purchase.order.form</field>
         <field name="model">purchase.order</field>
         <field name="arch" type="xml">
             <form string="Purchase Order" class="o_purchase_order">
             <header>
                 <button name="action_create_invoice" position="after">
-                    <button string="test"  type="object"/>
+                    <button string="create quotaton"  type="object"/>
                 </button>
                 <!-- <button name="action_rfq_send" states="draft" string="Send by Email" type="object" context="{'send_rfq':True}" class="oe_highlight"/>
                 <button name="print_quotation" string="Print RFQ" type="object" states="draft" class="oe_highlight" groups="base.group_user"/>
