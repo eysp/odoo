@@ -191,6 +191,21 @@ class PurchaseOrder_Data(models.Model):
 
 
    def createQuotation(self):
+
+        vals = {
+              'partner_id' : self.partner_id.id, 
+              
+            # 'freight_supplier_currency' : self.freight_supplier_currency,
+            # 'exchange_rate' : self.supplier_client_exchange_rate,
+            # 'design_engineering' : self.design_engineering, 
+            # 'commissioning' : self.commissioning,
+            # 'handlings' : self.handlings,
+            # 'custom_value' : self.custom_value,
+            # 'project_focus' : self.project_focus.id,
+            # 'standard_sale_order' : False,
+            # 'order_line' : [(0, 0, invoice_line_id) for invoice_line_id in line_items_vals]
+        }
+
        view_ref = self.env['ir.model.data'].get_object_reference('sale', 'view_order_form')
        view_id = view_ref[1] if view_ref else False
 
