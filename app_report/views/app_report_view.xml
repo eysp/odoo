@@ -1,5 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="quotecalculator_purchase_order_form_view" model="ir.ui.view">
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="model">purchase.order</field>
+        <field name="arch" type= "xml">
+            <field name="partner_ref" position="after">
+                <field name="supplier_client_exchange_rate" />
+                <field name="dealer_discount">Dealer Discount</field>
+                <field name="freight_supplier_currency">Freight Supplier Currency</field>
+                <field name="commissioning">Commissioning</field>
+                <field name="design_engineering">Design Engineering</field>
+                <field name="handlings">Handling</field>
+                <field name="custom_value">Customs</field>
+            </field>
+            <field name="origin" position="after">
+                <!-- <field name="project">Project</field> -->
+                 <field name="project_focus">Project</field>
+            </field>
+            <field name="partner_id" position="replace">
+                <field name="partner_id" widget="res_partner_many2one" 
+                context="{'res_partner_search_mode': 'supplier', 'show_vat': True}"
+                placeholder="Name, TIN, Email, or Reference"
+                domain="[('is_company','=',True)]"/>
+            </field>
+            <field name="amount_tax" position="after">
+               <field name="freight_supplier_currency" >Freight Supplier Currency</field>
+                <field name="commissioning"  >Commissioning</field>
+                <field name="design_engineering" >
+                </field>
+
+                <field name="handlings" >Handlings</field>
+                <field name="custom_value"  >Customs</field>
+            </field>
+            <button name="button_cancel" position="after">
+                <button string="Create Quotation" name="create_sales_order" type="object"/>
+            </button>
+            <button name="create_sales_order" position="after">
+                <button string="Update Data" name="update_line_data" type="object"/>
+            </button>
+        </field>
+    </record>
+
+    <record id= "quotecalculator_purchase_order_line_form_view" model= "ir.ui.view">
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="model">purchase.order</field>
+        <field name="arch" type= "xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='taxes_id']" position="after">
+				          <field name="line_dealer_discount" />
+                          <field name="dealer_purchase_price"/>
+                          <!-- <field name="line_project" /> -->
+                          <field name="line_project_focus" />
+			      </xpath>   
+
+        </field>
+    </record>
+
+    <record id= "quotecalculator_sales_order_form_view" model= "ir.ui.view">
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="model">sale.order</field >
+        <field name="arch" type= "xml">
+                <field name="validity_date" position="before">
+                    <field name="standard_sale_order"/>  
+                    <!-- <field name="project" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>   -->
+                     <field name="project_focus"/>  
+                </field>
+                <field name="sale_order_template_id" position = "after" >
+                    <field name="exchange_rate"  attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="freight" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="aud_freight" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="cost_aud_per_unit" invisible= "1"/>
+                    <field name="retail_discount" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="margin" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="freight_supplier_currency" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="commissioning" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="design_engineering" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="handlings" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="custom_value" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="margin_supply_charges" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                          
+                </field>
+                <field name="payment_term_id" position="after">
+                    <field name="local_freight" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="local_freight_margin" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="local_customs_value" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="local_customs_margin_value" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="destination_charges" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>  
+                    <field name="destination_margin_charges" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="local_commissioning" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="local_commissioning_margin" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="margin_local_charges" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>               
+                </field>
+                <field name="amount_tax" position="replace">
+                    <field name="amount_tax" attrs="{'invisible': [('standard_sale_order', '=', False)]}"/>
+                </field>
+                 <field name="partner_id" position="replace">
+                    <field name="partner_id" widget="res_partner_many2one" 
+                    context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" 
+                    options='{"always_reload": True}'
+                    domain="[('is_company','=',True)]"/>
+                </field>
+                <field name="amount_tax" position = "after">
+                    <field name="computed_retail_discount" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="calculated_design_engineering" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="calculated_freight_supplier_currency" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="calculated_commissioning" attrs="{'invisible': [('standard_sale_order', '=', True)]}" />
+                    <field name="calculated_handlings" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="calculated_custom_value" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="shipping_insurance" attrs="{'invisible': [('standard_sale_order', '=', True)]}" />
+                    <field name="local_freight_margin" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="local_customs_margin_value" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="destination_margin_charges" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="local_commissioning_margin" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                </field>
+                 <field name="amount_total" position = "after">
+                    <field name="gst_value" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                    <field name="total_inc_gst" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
+                </field>
+                <!-- <field name="product_uom_qty" position="after">
+                    <field name="aud_unit_total" attrs="{'invisible': [('standard_sale_order', '=', True)]}" />
+                </field> -->
+                
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                      <field name="cost_aud_per_unit1" invisible= "1"/>
+               </xpath>
+               <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
+                      <field name="aud_per_unit" invisible= "1"/>
+               </xpath>
+               <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                      <field name="aud_unit_total"/>
+               </xpath>
+               <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="before">
+                      <field name="line_project_focus"/>
+               </xpath>
+               <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="before">
+                      <field name="aud_unit_price_with_margin" invisible= "1"/>
+               </xpath>
+               <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="after">
+                      <field name="aud_total" invisible= "1" />
+               </xpath>
+        </field>
+    </record>
+</odoo>
+
+
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo>
     <record id= "app_report_sales_order_form_view_new" model= "ir.ui.view">
        
         <field name="inherit_id" ref="sale.view_order_form"/>
@@ -23,7 +168,7 @@
          </field>
     </record>
 
-    <!-- <record id= "app_report_Purchase_order_form_view" model= "ir.ui.view">
+     <record id= "app_report_Purchase_order_form_view" model= "ir.ui.view">
        
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="model">Purchase.order</field >
@@ -46,7 +191,7 @@
          </field>
     </record>  -->
 
-    <record id= "purchase_order_line_form_view" model= "ir.ui.view">
+    <!-- <record id= "purchase_order_line_form_view" model= "ir.ui.view">
         <field name="inherit_id" ref="purchase.purchase_order_form" />
         <field name="model">purchase.order</field>
         <field name="arch" type= "xml">
@@ -55,7 +200,7 @@
             </button>
             
         </field>
-    </record>
+    </record> -->
 
    
    
@@ -69,5 +214,5 @@
                     <field name="sale_order_ref"/>     
                 </field>
         </field>
-    </record> -->
-</odoo>
+    </record> 
+</odoo>  -->
