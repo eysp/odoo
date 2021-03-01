@@ -12,8 +12,7 @@
         'product'
     ],    
     'data': [
-        
-        'security/ir.model.access.csv'
+        views/task_view.xml
     ],
     'installable': True,
     'application':True,
