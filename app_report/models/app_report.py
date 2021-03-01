@@ -47,6 +47,87 @@ class SaleOrder_Data(models.Model):
         }
         return invoice_vals
 
+    # def create_sales_order(self):
+    #     # order_reference = self.name
+
+    #     #line_items_vals = []
+    #     # for line in self.line_items:
+    #     #     line_items_vals.append({
+    #     #         'product_id': line.product_id.id,
+    #     #         'name': line.name,
+    #     #         'product_uom_qty': line.product_qty,
+    #     #         'price_unit': line.price_unit,
+    #     #         'line_project_focus' : line.line_project_focus.id
+    #     #     })
+
+    #     vals = {
+    #           'partner_id' : self.partner_id.id, 
+    #           'payment_type':'Cash', 
+    #         # 'freight_supplier_currency' : self.freight_supplier_currency,
+    #         # 'exchange_rate' : self.supplier_client_exchange_rate,
+    #         # 'design_engineering' : self.design_engineering, 
+    #         # 'commissioning' : self.commissioning,
+    #         # 'handlings' : self.handlings,
+    #         # 'custom_value' : self.custom_value,
+    #         # 'project_focus' : self.project_focus.id,
+    #         # 'standard_sale_order' : False,
+    #         # 'order_line' : [(0, 0, invoice_line_id) for invoice_line_id in line_items_vals]
+    #     }
+
+    #     # print("**************************************** ******************************************")
+    #     # print(self.partner_id.id)
+
+    #     view_ref = self.env['ir.model.data'].get_object_reference('sale', 'view_order_form')
+    #     view_id = view_ref[1] if view_ref else False
+
+    #     new_salesorder = self.env['sale.order'].create(vals)
+    
+    #     view_data = {
+    #     'type': 'ir.actions.act_window',
+    #     'name': ('Sales Order'),
+    #     'res_model': 'sale.order',
+    #     'res_id': new_salesorder.id,
+    #     'view_type': 'form',
+    #     'view_mode': 'form',
+    #     'view_id': view_id,
+    #     'target': 'new'
+    #     }
+
+    #     return view_data
+
+
+    def _prepare_invoice_line(self, **optional_values):
+        """
+        Prepare the dict of values to create the new invoice line for a sales order line.
+
+        :param qty: float quantity to invoice
+        :param optional_values: any parameter that should be added to the returned invoice line
+        """
+        self.ensure_one()
+        res = {
+            'display_type': self.display_type,
+            'sequence': self.sequence,
+            'name': self.name,
+            'product_id': self.product_id.id,
+            'product_uom_id': self.product_uom.id,
+            'quantity': self.qty_to_invoice,
+            'discount': self.discount,
+            'seller_discount': self.seller_discount,
+            'price_unit': self.price_unit,
+            'tax_ids': [(6, 0, self.tax_id.ids)],
+            'analytic_account_id': self.order_id.analytic_account_id.id,
+            'analytic_tag_ids': [(6, 0, self.analytic_tag_ids.ids)],
+            'sale_line_ids': [(4, self.id)],
+        }
+        if optional_values:
+            res.update(optional_values)
+        if self.display_type:
+            res['account_id'] = False
+        return res
+
+class Purchase(models.Model):
+    _inherit = 'Purchase.order'
+
     def create_sales_order(self):
         # order_reference = self.name
 
@@ -94,46 +175,6 @@ class SaleOrder_Data(models.Model):
         }
 
         return view_data
-
-
-    def _prepare_invoice_line(self, **optional_values):
-        """
-        Prepare the dict of values to create the new invoice line for a sales order line.
-
-        :param qty: float quantity to invoice
-        :param optional_values: any parameter that should be added to the returned invoice line
-        """
-        self.ensure_one()
-        res = {
-            'display_type': self.display_type,
-            'sequence': self.sequence,
-            'name': self.name,
-            'product_id': self.product_id.id,
-            'product_uom_id': self.product_uom.id,
-            'quantity': self.qty_to_invoice,
-            'discount': self.discount,
-            'seller_discount': self.seller_discount,
-            'price_unit': self.price_unit,
-            'tax_ids': [(6, 0, self.tax_id.ids)],
-            'analytic_account_id': self.order_id.analytic_account_id.id,
-            'analytic_tag_ids': [(6, 0, self.analytic_tag_ids.ids)],
-            'sale_line_ids': [(4, self.id)],
-        }
-        if optional_values:
-            res.update(optional_values)
-        if self.display_type:
-            res['account_id'] = False
-        return res
-
-class PurchaseOrder_Data(models.Model):
-    _inherit = 'purchase.order'
-
-    # channel_order_number = fields.Char(string = 'Channel Order')
-    # payment_type = fields.Char(string = 'Payment Type')
-    # description_1 = fields.Char(string = 'Description 1')
-    # dealer_discount = fields.Char(string = 'Dealer Discount1')
-    check_it = fields.Boolean(string = 'check it', help= 'this is just to test booleean field')
-    result = fields.Float(string='result', digits=(12,6))
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
