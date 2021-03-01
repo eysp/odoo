@@ -46,16 +46,19 @@
          </field>
     </record>  -->
 
-    <!-- <record id= "purchase_order_line_form_view" model= "ir.ui.view">
-        <field name="inherit_id" ref="purchase.purchase_order_form" />
-        <field name="model">purchase.order</field>
+    <record id= "app_report_purchase_order_form_view_new" model= "ir.ui.view">
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="model">purchase.order</field >
         <field name="arch" type= "xml">
-            <button name="action__invoice" position="after">
-                <button string="test" name="create_sales_order" type="object"/>
-            </button>
-            
+                
+                <button name = "action_rfq_send" position="after">
+                    <button name="createQuotation" string="Create Quotation" type="object"/>
+                </button>    
+ 
+    
         </field>
-    </record> -->
+    </record>
+ 
 
    
    
