@@ -54,8 +54,6 @@
                 <button name = "action_rfq_send" position="after">
                     <button name="createQuotation" string="Create Quotation" type="object"/>
                 </button>    
- 
-    
         </field>
     </record>
  
