@@ -183,3 +183,29 @@ class AccountMove_Line_Data(models.Model):
     _inherit = 'account.move.line'
     seller_discount = fields.Float('seller_discount')
 
+
+class PurchaseOrder_Data(models.Model):
+   _inherit = 'purchase.order'
+   #description = fields.Char(string='Description')
+   
+
+
+   def createQuotation(self):
+       view_ref = self.env['ir.model.data'].get_object_reference('sale', 'view_order_form')
+       view_id = view_ref[1] if view_ref else False
+
+       new_salesorder = self.env['sale.order'].create(vals)
+   
+       view_data = {
+       'type': 'ir.actions.act_window',
+       'name': ('Sales Order '),
+       'res_model': 'sale.order',
+       'res_id': new_salesorder.id,
+       'view_type': 'form',
+       'view_mode': 'form',
+       'view_id': view_id,
+       'target': 'new'
+       }
+
+       return view_data
+
