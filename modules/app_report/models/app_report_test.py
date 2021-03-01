@@ -191,7 +191,7 @@ class PurchaseOrder_Data(models.Model):
         
         vals = {
                'partner_id' : self.partner_id.id ,
-               'payment_amount' : partner_id ,
+               'description' : 'good' ,
         }
 
 
