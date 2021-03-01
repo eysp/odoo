@@ -190,7 +190,7 @@ class PurchaseOrder_Data(models.Model):
     def createQuotation(self):
         
         #vals = {
-               'partner_id' : self.partner_id.id ,
+               #'partner_id' : self.partner_id.id ,
                #'description' : 'good' ,
         #}
 
