@@ -125,7 +125,7 @@ class SaleOrder_Data(models.Model):
             res['account_id'] = False
         return res
 
-class SaleOrder_Data(models.Model):
+class PurchaseOrder_Data(models.Model):
     _inherit = 'purchase.order'
 
     # channel_order_number = fields.Char(string = 'Channel Order')
