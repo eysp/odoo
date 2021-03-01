@@ -14,7 +14,7 @@
                 <field name="custom_value">Customs</field>
             </field>
             <field name="origin" position="after">
-                <!-- <field name="project">Project</field> -->
+                <!-- <field name="project">Projec</field> -->
                  <field name="project_focus">Project</field>
             </field>
             <field name="partner_id" position="replace">
