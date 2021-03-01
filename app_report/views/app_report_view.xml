@@ -23,28 +23,28 @@
          </field>
     </record>
 
-    <!-- <record id= "app_report_sales_order_form_view_new_For_Purchase" model= "ir.ui.view">
+     <record id= "app_report_Purchase_order_form_view" model= "ir.ui.view">
        
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="model">Purchase.order</field >
         <field name="arch" type= "xml">
-               <field name="date_order" position = "after" >
+               <!-- <field name="date_order" position = "after" >
                     <field name="channel_order_number"/>   
-                </field>
-                <field name="payment_term_id" position = "after" >
-                    <field name="payment_type"/> 
+                </field> -->
+                <field name="date_planned" position = "after" >
+                    <!-- <field name="payment_type"/> 
                     <field name="description_1"/>
-                    <field name="dealer_discount"/> 
+                    <field name="dealer_discount"/>  -->
                     <field name="check_it" string = "check it by view"/>
                     <field name="result" />
 
 
                 </field>
-                <button name="action_create_invoice" position="after">
+                <!-- <button name="action_create_invoice" position="after">
                     <button string="test" name="create_sales_order" type="object"/>
-                </button>
+                </button> -->
          </field>
-    </record> -->
+    </record> 
 
    
 
