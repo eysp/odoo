@@ -12,7 +12,7 @@
         'product'
     ],    
     'data': [
-        views/task_view.xml
+        'views/task_view.xml'
     ],
     'installable': True,
     'application':True,
