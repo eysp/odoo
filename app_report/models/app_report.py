@@ -129,74 +129,105 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
     seller_discount = fields.Float(string='Seller Discount')
 
-class AccountMove_Data(models.Model):
-    _inherit = 'account.move'
+# class AccountMove_Data(models.Model):
+#     _inherit = 'account.move'
 
-    # seller_discount = fields.Float(string = 'Seller Discount',readonly=True, tracking=True)
+#     # seller_discount = fields.Float(string = 'Seller Discount',readonly=True, tracking=True)
 
-    channel_order_number = fields.Char(string = 'Channel Order No.',readonly=True, tracking=True)
+#     channel_order_number = fields.Char(string = 'Channel Order No.',readonly=True, tracking=True)
     
-    @api.depends('line_ids.price_unit', 'line_ids.seller_discount','line_ids.quantity')
-    def _cal_total_discount(self):
-        for order in self:
-            cal_discount = 0
-            for line_items in order.line_ids:
-                cal_discount = cal_discount + (line_items.quantity * line_items.price_unit * line_items.seller_discount) / 100
-            order.calculated_discount = cal_discount
+#     @api.depends('line_ids.price_unit', 'line_ids.seller_discount','line_ids.quantity')
+#     def _cal_total_discount(self):
+#         for order in self:
+#             cal_discount = 0
+#             for line_items in order.line_ids:
+#                 cal_discount = cal_discount + (line_items.quantity * line_items.price_unit * line_items.seller_discount) / 100
+#             order.calculated_discount = cal_discount
         
 
-    calculated_discount = fields.Float(string = 'Discount', compute = '_cal_total_discount', store = True, digits=(12,4))
+#     calculated_discount = fields.Float(string = 'Discount', compute = '_cal_total_discount', store = True, digits=(12,4))
 
-    @api.depends('amount_untaxed','calculated_discount')
-    def _cal_grand_total(self):
-        for order in self:
-            order.grand_total = order.amount_untaxed + order.calculated_discount
+#     @api.depends('amount_untaxed','calculated_discount')
+#     def _cal_grand_total(self):
+#         for order in self:
+#             order.grand_total = order.amount_untaxed + order.calculated_discount
 
-    grand_total = fields.Float(string = 'Grand Total', store = True, compute = '_cal_grand_total')
+#     grand_total = fields.Float(string = 'Grand Total', store = True, compute = '_cal_grand_total')
 
-    @api.depends('calculated_discount', 'grand_total')
-    def _cal_total_baht_escl_vat(self):
-        for orders in self:
-            orders.total_baht_excl_VAT = orders.grand_total - orders.calculated_discount
+#     @api.depends('calculated_discount', 'grand_total')
+#     def _cal_total_baht_escl_vat(self):
+#         for orders in self:
+#             orders.total_baht_excl_VAT = orders.grand_total - orders.calculated_discount
 
-    total_baht_excl_VAT = fields.Float(string = 'Total Baht Excl VAT', compute = '_cal_total_baht_escl_vat', store= True, digits=(12,4))
+#     total_baht_excl_VAT = fields.Float(string = 'Total Baht Excl VAT', compute = '_cal_total_baht_escl_vat', store= True, digits=(12,4))
 
-    @api.depends('total_baht_excl_VAT')
-    def _cal_total_baht_incl_vat(self):
-        for orders in self:
-            orders.total_baht_incl_VAT = orders.total_baht_excl_VAT * 1.07
+#     @api.depends('total_baht_excl_VAT')
+#     def _cal_total_baht_incl_vat(self):
+#         for orders in self:
+#             orders.total_baht_incl_VAT = orders.total_baht_excl_VAT * 1.07
 
-    total_baht_incl_VAT = fields.Float(string = 'Total Baht Incl VAT', compute = '_cal_total_baht_incl_vat', store = True, digits=(12,4))
+#     total_baht_incl_VAT = fields.Float(string = 'Total Baht Incl VAT', compute = '_cal_total_baht_incl_vat', store = True, digits=(12,4))
 
-    @api.depends('total_baht_excl_VAT','total_baht_incl_VAT')
-    def _cal_total_vat(self):
-        for orders in self:
-            orders.vat = orders.total_baht_incl_VAT - orders.total_baht_excl_VAT
+#     @api.depends('total_baht_excl_VAT','total_baht_incl_VAT')
+#     def _cal_total_vat(self):
+#         for orders in self:
+#             orders.vat = orders.total_baht_incl_VAT - orders.total_baht_excl_VAT
 
-    vat = fields.Float(string = 'Vat', compute = '_cal_total_vat', store = True, digits=(12,4))
+#     vat = fields.Float(string = 'Vat', compute = '_cal_total_vat', store = True, digits=(12,4))
 
 class PurchaseOrder_Data(models.Model):
     _inherit = 'purchase.order'
+    
+
     def createQuotation(self):
+        # order_reference = self.name
+
+        #line_items_vals = []
+        # for line in self.line_items:
+        #     line_items_vals.append({
+        #         'product_id': line.product_id.id,
+        #         'name': line.name,
+        #         'product_uom_qty': line.product_qty,
+        #         'price_unit': line.price_unit,
+        #         'line_project_focus' : line.line_project_focus.id
+        #     })
+
         vals = {
-            'partner_id' : self.partner_id.id 
-            }
-            view_ref = self.env['ir.model.data'].get_object_reference('sale', 'view_order_form')
-            view_id = view_ref[1] if view_ref else False
-            new_salesorder = self.env['sale.order'].create(vals)
-            
-            view_data = {
-                'type': 'ir.actions.act_window',
-                'name': ('Sales Order '),
-                'res_model': 'sale.order',
-                'res_id': new_salesorder.id,
-                'view_type': 'form',
-                'view_mode': 'form',
-                'view_id': view_id,
-                'target': 'new'
-                }
-                
-                return view_data
+              'partner_id' : self.partner_id.id, 
+              'payment_type':'Cash', 
+            # 'freight_supplier_currency' : self.freight_supplier_currency,
+            # 'exchange_rate' : self.supplier_client_exchange_rate,
+            # 'design_engineering' : self.design_engineering, 
+            # 'commissioning' : self.commissioning,
+            # 'handlings' : self.handlings,
+            # 'custom_value' : self.custom_value,
+            # 'project_focus' : self.project_focus.id,
+            # 'standard_sale_order' : False,
+            # 'order_line' : [(0, 0, invoice_line_id) for invoice_line_id in line_items_vals]
+        }
+
+        # print("**************************************** ******************************************")
+        # print(self.partner_id.id)
+
+        view_ref = self.env['ir.model.data'].get_object_reference('sale', 'view_order_form')
+        view_id = view_ref[1] if view_ref else False
+
+        new_salesorder = self.env['sale.order'].create(vals)
+    
+        view_data = {
+        'type': 'ir.actions.act_window',
+        'name': ('Sales Order'),
+        'res_model': 'sale.order',
+        'res_id': new_salesorder.id,
+        'view_type': 'form',
+        'view_mode': 'form',
+        'view_id': view_id,
+        'target': 'new'
+        }
+
+        return view_data
+
+
 
 
 
