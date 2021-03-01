@@ -182,7 +182,7 @@ class ResPartner_Data(models.Model):
 
 
 class PurchaseOrder_Data(models.Model):
-    _inherit = 'purchase.order'
+    _inherit = ['purchase.order', 'sale.order']
     description = fields.Char(string='Description')
     
 
