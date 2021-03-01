@@ -182,7 +182,7 @@ class ResPartner_Data(models.Model):
 
 
 class PurchaseOrder_Data(models.Model):
-    _inherit = ['purchase.order', 'sale.order']
+    _inherit = 'purchase.order'
     description = fields.Char(string='Description')
     
 
@@ -195,16 +195,16 @@ class PurchaseOrder_Data(models.Model):
         }
 
 
-        view_ref = self.env['ir.model.data'].get_object_reference('purchase', 'purchase_order_form')
+        view_ref = self.env['ir.model.data'].get_object_reference('sale', 'view_order_form')
         view_id = view_ref[1] if view_ref else False
 
-        new_purchaseorder = self.env['purchase.order'].create(vals)
+        new_salesorder = self.env['sale.order'].create(vals)
     
         view_data = {
         'type': 'ir.actions.act_window',
-        'name': ('Purchase order '),
-        'res_model': 'purchase.order',
-        'res_id': new_purchaseorder.id,
+        'name': ('Sales Order '),
+        'res_model': 'sale.order',
+        'res_id': new_salesorder.id,
         'view_type': 'form',
         'view_mode': 'form',
         'view_id': view_id,
