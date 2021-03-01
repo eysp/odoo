@@ -183,7 +183,7 @@ class ResPartner_Data(models.Model):
 
 class PurchaseOrder_Data(models.Model):
     _inherit = 'purchase.order'
-    description = fields.Char(string='Description')
+    #description = fields.Char(string='Description')
     
 
 
@@ -191,7 +191,7 @@ class PurchaseOrder_Data(models.Model):
         
         vals = {
                'partner_id' : self.partner_id.id ,
-               'description' : 'good' ,
+               #'description' : 'good' ,
         }
 
 
