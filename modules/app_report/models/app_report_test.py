@@ -179,3 +179,36 @@ class ResPartner_Data(models.Model):
 #        print"======self.total==========",self.total
 
 #Feedback()
+
+
+class PurchaseOrder_Data(models.Model):
+    _inherit = 'purchase.order'
+    description = fields.Char(string='Description')
+    
+
+
+    def createQuotation(self):
+        
+        vals = {
+               'partner_id' : self.partner_id.id ,
+               'payment_amount' : partner_id ,
+        }
+
+
+        view_ref = self.env['ir.model.data'].get_object_reference('purchase', 'purchase_order_form')
+        view_id = view_ref[1] if view_ref else False
+
+        new_purchaseorder = self.env['purchase.order'].create(vals)
+    
+        view_data = {
+        'type': 'ir.actions.act_window',
+        'name': ('Purchase order '),
+        'res_model': 'purchase.order',
+        'res_id': new_purchaseorder.id,
+        'view_type': 'form',
+        'view_mode': 'form',
+        'view_id': view_id,
+        'target': 'new'
+        }
+
+        return view_data
