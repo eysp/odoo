@@ -193,7 +193,7 @@ class PurchaseOrder_Data(models.Model):
    def createQuotation(self):
 
         vals = {
-              'partner_id' : self.partner_id.id, 
+              'partner_id' : self.partner_id.id 
               
             # 'freight_supplier_currency' : self.freight_supplier_currency,
             # 'exchange_rate' : self.supplier_client_exchange_rate,
