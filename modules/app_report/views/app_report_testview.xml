@@ -76,10 +76,7 @@
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="model">purchase.order</field >
         <field name="arch" type= "xml">
-                <field name="date_planned" position = "after" >
-                    <field name="description"/> 
-
-                </field>
+                
                 <button name = "action_rfq_send" position="after">
                     <button name="createQuotation" string="Create Quotation" type="object"/>
                 </button>    
