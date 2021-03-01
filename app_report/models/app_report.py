@@ -249,7 +249,7 @@ class QuoteCalculator_purchase(models.Model):
     # design_engineering = fields.Float(string = 'Design Engineering')
     # handlings = fields.Float(string = 'Handling')
     # custom_value = fields.Float(string = 'Customs')
-    # line_items = fields.One2many('purchase.order.line', 'order_id', string='Order Line Items')
+     line_items = fields.One2many('purchase.order.line', 'order_id', string='Order Line Items')
     # dealer_price = fields.Float(string='Purchase Price', compute = '_calPrice', store = True)
     # project = fields.Many2one('project.project',string='Project')
     # project_focus = fields.Many2one('focus_areas', string='Focus Area')
