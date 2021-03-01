@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <menuitem id= "hospital_root" name="Hospital" sequence="0"/>
-    <menuitem id= "hospital_patient" name="Patient" parent = "hospital_root" />
-
-</odoo>
