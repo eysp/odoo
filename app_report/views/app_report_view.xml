@@ -4,7 +4,7 @@
         <field name="inherit_id" ref="purchase.purchase_order_form" />
         <field name="model">purchase.order</field>
         <field name="arch" type= "xml">
-            <!-- <field name="partner_ref" position="after">
+            <field name="partner_ref" position="after">
                 <field name="supplier_client_exchange_rate" />
                 <field name="dealer_discount">Dealer Discount</field>
                 <field name="freight_supplier_currency">Freight Supplier Currency</field>
@@ -14,7 +14,7 @@
                 <field name="custom_value">Customs</field>
             </field>
             <field name="origin" position="after">
-                 <field name="project">Project</field> 
+                <!-- <field name="project">Project</field> -->
                  <field name="project_focus">Project</field>
             </field>
             <field name="partner_id" position="replace">
@@ -31,24 +31,24 @@
 
                 <field name="handlings" >Handlings</field>
                 <field name="custom_value"  >Customs</field>
-            </field> -->
+            </field>
             <button name="button_cancel" position="after">
                 <button string="Create Quotation" name="create_sales_order" type="object"/>
             </button>
-            <!-- <button name="create_sales_order" position="after">
+            <button name="create_sales_order" position="after">
                 <button string="Update Data" name="update_line_data" type="object"/>
-            </button> -->
+            </button>
         </field>
     </record>
 
-    <!-- <record id= "quotecalculator_purchase_order_line_form_view" model= "ir.ui.view">
+    <record id= "quotecalculator_purchase_order_line_form_view" model= "ir.ui.view">
         <field name="inherit_id" ref="purchase.purchase_order_form" />
         <field name="model">purchase.order</field>
         <field name="arch" type= "xml">
             <xpath expr="//field[@name='order_line']/tree/field[@name='taxes_id']" position="after">
 				          <field name="line_dealer_discount" />
                           <field name="dealer_purchase_price"/>
-                           <field name="line_project" /> 
+                          <!-- <field name="line_project" /> -->
                           <field name="line_project_focus" />
 			      </xpath>   
 
@@ -61,7 +61,7 @@
         <field name="arch" type= "xml">
                 <field name="validity_date" position="before">
                     <field name="standard_sale_order"/>  
-                     <field name="project" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>   
+                    <!-- <field name="project" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>   -->
                      <field name="project_focus"/>  
                 </field>
                 <field name="sale_order_template_id" position = "after" >
@@ -116,9 +116,9 @@
                     <field name="gst_value" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
                     <field name="total_inc_gst" attrs="{'invisible': [('standard_sale_order', '=', True)]}"/>
                 </field>
-                 <field name="product_uom_qty" position="after">
+                <!-- <field name="product_uom_qty" position="after">
                     <field name="aud_unit_total" attrs="{'invisible': [('standard_sale_order', '=', True)]}" />
-                </field> 
+                </field> -->
                 
                 <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
                       <field name="cost_aud_per_unit1" invisible= "1"/>
@@ -139,7 +139,7 @@
                       <field name="aud_total" invisible= "1" />
                </xpath>
         </field>
-    </record> -->
+    </record>
 </odoo>
 
 
