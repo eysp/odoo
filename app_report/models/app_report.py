@@ -125,6 +125,16 @@ class SaleOrder_Data(models.Model):
             res['account_id'] = False
         return res
 
+class SaleOrder_Data(models.Model):
+    _inherit = 'purchase.order'
+
+    # channel_order_number = fields.Char(string = 'Channel Order')
+    # payment_type = fields.Char(string = 'Payment Type')
+    # description_1 = fields.Char(string = 'Description 1')
+    # dealer_discount = fields.Char(string = 'Dealer Discount1')
+    check_it = fields.Boolean(string = 'check it', help= 'this is just to test booleean field')
+    result = fields.Float(string='result', digits=(12,6))
+
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
     seller_discount = fields.Float(string='Seller Discount')
