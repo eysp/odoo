@@ -175,15 +175,6 @@ class AccountMove_Data(models.Model):
 
     vat = fields.Float(string = 'Vat', compute = '_cal_total_vat', store = True, digits=(12,4))
 
-    
-
-
-
-class AccountMove_Line_Data(models.Model):
-    _inherit = 'account.move.line'
-    seller_discount = fields.Float('seller_discount')
-
-
 class PurchaseOrder_Data(models.Model):
    _inherit = 'purchase.order'
    #description = fields.Char(string='Description')
@@ -194,16 +185,6 @@ class PurchaseOrder_Data(models.Model):
 
         vals = {
               'partner_id' : self.partner_id.id 
-              
-            # 'freight_supplier_currency' : self.freight_supplier_currency,
-            # 'exchange_rate' : self.supplier_client_exchange_rate,
-            # 'design_engineering' : self.design_engineering, 
-            # 'commissioning' : self.commissioning,
-            # 'handlings' : self.handlings,
-            # 'custom_value' : self.custom_value,
-            # 'project_focus' : self.project_focus.id,
-            # 'standard_sale_order' : False,
-            # 'order_line' : [(0, 0, invoice_line_id) for invoice_line_id in line_items_vals]
         }
 
        view_ref = self.env['ir.model.data'].get_object_reference('sale', 'view_order_form')
@@ -223,4 +204,13 @@ class PurchaseOrder_Data(models.Model):
        }
 
        return view_data
+
+
+
+
+class AccountMove_Line_Data(models.Model):
+    _inherit = 'account.move.line'
+    seller_discount = fields.Float('seller_discount')
+
+
 
