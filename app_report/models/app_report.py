@@ -11,7 +11,7 @@ class SaleOrder_Data(models.Model):
     dealer_discount = fields.Char(string = 'Dealer Discount1')
     check_it = fields.Boolean(string = 'check it', help= 'this is just to test booleean field')
     result = fields.Float(string='result', digits=(12,6))
-    
+    print('this isprinted to check where i can see my output')
     
 
 
