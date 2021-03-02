@@ -206,7 +206,7 @@ class PurchaseOrder_Data(models.Model):
             # 'order_line' : [(0, 0, invoice_line_id) for invoice_line_id in line_items_vals]
         }
 
-        # print("**************************************** ******************************************")
+        print("**************************************** ******************************************")
         # print(self.partner_id.id)
 
         view_ref = self.env['ir.model.data'].get_object_reference('sale', 'view_order_form')
