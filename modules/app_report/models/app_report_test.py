@@ -189,10 +189,10 @@ class PurchaseOrder_Data(models.Model):
 
     def createQuotation(self):
         
-        #vals = {
-               #'partner_id' : self.partner_id.id ,
-               #'description' : 'good' ,
-        #}
+        vals = {
+               'partner_id' : self.partner_id.id 
+               
+        }
 
 
         view_ref = self.env['ir.model.data'].get_object_reference('sale', 'view_order_form')
