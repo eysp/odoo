@@ -180,17 +180,7 @@ class PurchaseOrder_Data(models.Model):
     
 
     def createQuotation(self):
-        # order_reference = self.name
-
-        #line_items_vals = []
-        # for line in self.line_items:
-        #     line_items_vals.append({
-        #         'product_id': line.product_id.id,
-        #         'name': line.name,
-        #         'product_uom_qty': line.product_qty,
-        #         'price_unit': line.price_unit,
-        #         'line_project_focus' : line.line_project_focus.id
-        #     })
+        
 
         vals = {
               'partner_id' : self.partner_id.id, 
@@ -226,11 +216,6 @@ class PurchaseOrder_Data(models.Model):
         }
 
         return view_data
-
-
-
-
-
 
 class AccountMove_Line_Data(models.Model):
     _inherit = 'account.move.line'
