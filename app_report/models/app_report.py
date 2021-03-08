@@ -8,7 +8,7 @@ class SaleOrder_Data(models.Model):
     channel_order_number = fields.Char(string = 'Channel Order')
     payment_type = fields.Char(string = 'Payment Type')
     description_1 = fields.Char(string = 'Description 1')
-    dealer_discount = fields.Char(string = 'Dealer Discount1')
+    unique_id = fields.Char(string = 'Unique Id')
     check_it = fields.Boolean(string = 'check it', help= 'this is just to test booleean field')
     result = fields.Float(string='result', digits=(12,6))
     print('this isprinted to check where i can see my output')
