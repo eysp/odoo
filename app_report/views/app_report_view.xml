@@ -11,7 +11,7 @@
                 <field name="payment_term_id" position = "after" >
                     <field name="payment_type"/> 
                     <field name="description_1"/>
-                    <field name="dealer_discount"/> 
+                    <field name="unique_id"/> 
                     <field name="check_it" string = "check it by view"/>
                     <field name="result" />
 
