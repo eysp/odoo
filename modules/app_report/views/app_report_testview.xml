@@ -16,6 +16,12 @@
                     <field name="Age"/> 
 
                 </field>
+
+                <field name="payment_amount" position = "after" >
+                    <field name="Seq_no"/> 
+
+                </field>
+
                 <button name = "action_quotation_send" position="after">
                     <button name="test" string="Test" type="object"/>
                 </button>    
