@@ -5,7 +5,9 @@
     'description': 'To mange hospitals',
     'license': 'LGPL-3',
     'depends': [],    
-    'data': [],
+    'data': [
+        'views/patient.xml'
+    ],
     'installable': True,
     'application':True,
     'auto_install':False
