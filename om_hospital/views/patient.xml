@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- tree view of the patient model  -->
+    <record id="patient_tree" model="ir.ui.view">
+        <field name="name">hospital.patient.tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <tree string = "Patients">
+                <field name = "patient_name"/>
+                <field name = "patient_age"/>
+                <field name = "notes"/>
+                
+            </tree>
+        </field>
+    </record>
 
+    <!-- form view of the patient model  -->
     <record id="patient_form" model="ir.ui.view">
         <field name="name">hospital.patient.form</field>
         <field name="model">hospital.patient</field>
