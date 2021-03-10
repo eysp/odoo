@@ -14,6 +14,6 @@
         </field>
     </record>
     <!-- menu only get visible when it have some action -->
-    <menuitem id="hospital_root" name = "Hospital" sequence='0' web_icon="C:\Users\abc\Documents\GitHub\allimporttest\om_hospital\static\description\icon.png"/>
+    <menuitem id="hospital_root" name = "Hospital" sequence='0' web_icon='allimporttest\om_hospital\static\description'/>
     <menuitem id="hospital_patient" name = "Patients" parent = "hospital_root" action="action_patient"/>
 </odoo>
