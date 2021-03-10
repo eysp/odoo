@@ -7,12 +7,20 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form string = "Patients">
-                <group>
-                    <field name = "patient_name"/>
-                    <field name = "patient_age"/>
-                    <field name = "notes"/>
-                    <field name = "image"/>
-                </group>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name = "patient_name"/>
+                        </group>
+                        <group>
+                            <field name = "patient_age"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name = "notes"/>
+                        <field name = "image"/>
+                    </group>
+                </sheet>
 
             </form>
         </field>
