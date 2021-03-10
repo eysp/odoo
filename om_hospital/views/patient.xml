@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- menu only get visible when it have some action -->
     <menuitem id="hospital_root" name = "Hospital"/>
+    <menuitem id="hospital_patient" name = "Patients" parent = "hospital_root"/>
 </odoo>
