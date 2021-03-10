@@ -9,11 +9,11 @@
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
-            Create a new quotation, the first step of a new sale!
+            Create First Patient
           </p>
         </field>
     </record>
     <!-- menu only get visible when it have some action -->
     <menuitem id="hospital_root" name = "Hospital" sequence='0'/>
-    <menuitem id="hospital_patient" name = "Patients" parent = "hospital_root"/>
+    <menuitem id="hospital_patient" name = "Patients" parent = "hospital_root" action="action_patient"/>
 </odoo>
