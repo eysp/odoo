@@ -16,8 +16,8 @@
                     <field name="unique_id"/> 
                     <field name="check_it" string = "check it by view"/>
                     <field name="result" />
-
-
+                    <field name="custom_payment_method" />
+                    
                 </field>
                 
          </field>
