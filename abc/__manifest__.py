@@ -9,7 +9,7 @@
         #'data/data.xml',
         #'reports/report_tax_invoice.xml',
         #'reports/reports.xml',
-        #'views/app_report_testview.xml'
+        'views/testview.xml'
     ],
     'installable': True,
     'application':True,
