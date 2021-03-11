@@ -9,11 +9,11 @@
         <field name="model">custom.module</field>
         <field name="arch" type="xml">
             <form string = "custom">
-                <groups>
+                <group>
                 <field name = "name"/>
                 <field name = "age"/>
                 <field name = "payment_method"/>
-                </groups> 
+                </group> 
                 
             </form>
         </field>
