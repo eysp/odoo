@@ -1,23 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+
     <record id= "app_report_sales_order_form_view_new" model= "ir.ui.view">
+       
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="model">sale.order</field >
         <field name="arch" type= "xml">
-               
-                <field name="abc_age" position = "after" >
-                    <field name="payment_amount"/> 
-                      
+               <field name="date_order" position = "after" >
+                    <field name="channel_order_number"/>   
                 </field>
-
-            
-
-                 
+                <field name="payment_term_id" position = "after" >
+                    
+                    <field name="custom_payment_method" />
+                    
+                </field>
+                
+         </field>
+    </record>
 
     
+
+    <!-- form view of the patient model  -->
+    <record id="test_form" model="ir.ui.view">
+        <field name="name">abc.module.form</field>
+        <field name="model">abc.module</field>
+        <field name="arch" type="xml">
+            <form string = "abc">
+                <group>
+                <field name = "abc_name"/>
+                <field name = "abc_age"/>
+                </group> 
+                
+            </form>
         </field>
     </record>
 
+    <record id="action_abc" model="ir.actions.act_window">
+        <field name="name">abcd</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">abc.module</field>
+        
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create First report
+          </p>
+        </field>
+    </record>
 
+    <menuitem id="custom_root" name = "abc" />
+    <menuitem id="custom_child" name = "abcd" parent = "abc_root" action="action_abc"/>
 
+   
 </odoo>
