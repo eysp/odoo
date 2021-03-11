@@ -4,7 +4,7 @@
     'Summary': 'abcd Report Prints',
     'description': 'To print the new report',
     'license': 'LGPL-3',
-    'depends': [],    
+    'depends': ['sale_management','website','account_accountant'],    
     'data': [
         #'data/data.xml',
         #'reports/report_tax_invoice.xml',
