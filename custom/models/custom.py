@@ -11,6 +11,7 @@ class SaleOrder_Data(models.Model):
     unique_id = fields.Char(string = 'Unique Id')
     check_it = fields.Boolean(string = 'check it', help= 'this is just to test booleean field')
     result = fields.Float(string='result', digits=(12,6))
+    custom_payment_method  = fields.Char(string='P M')
     
 
 class HospitalPatient(models.Model):
