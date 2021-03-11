@@ -4,7 +4,9 @@
     'Summary': 'custom ',
     'description': 'for vikrma sir',
     'license': 'LGPL-3',
-    'depends': [],    
+    'depends': [
+        'sale_management','website','account_accountant'
+    ],    
     'data': [
         'views/custom.xml'
     ],
