@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+
+    <record id= "app_report_sales_order_form_view_new" model= "ir.ui.view">
+       
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="model">sale.order</field >
+        <field name="arch" type= "xml">
+               <field name="date_order" position = "after" >
+                    <field name="channel_order_number"/>   
+                </field>
+                <field name="payment_term_id" position = "after" >
+                    <field name="payment_type"/> 
+                    <field name="description_1"/>
+                    <field name="unique_id"/> 
+                    <field name="check_it" string = "check it by view"/>
+                    <field name="result" />
+
+
+                </field>
+                
+         </field>
+    </record>
+
     
 
     <!-- form view of the patient model  -->
