@@ -1,8 +1,8 @@
 {
-    'name' : 'Test_model',
+    'name' : 'Test model',
     'version': '1.2',
     'Summary': 'Trial new custom model',
-    'description': 'To print the new report',
+    'description': 'first module',
     'license': 'LGPL-3',
     'depends': [
         'sale_management','website','account_accountant'
