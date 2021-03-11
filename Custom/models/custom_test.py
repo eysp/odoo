@@ -19,4 +19,4 @@ class Custom_Data(models.Model):
 
 
     name = fields.Char(string = 'Name')
-    age = fields.Char(string = 'Name') 
+    age = fields.Char(string = 'Age') 
