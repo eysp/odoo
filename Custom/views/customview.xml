@@ -25,8 +25,8 @@
    
 
     <record id="view_form" model="ir.ui.view">
-            <field name="name">view.custom_Data.form</field>
-            <field name="model">custom_Data</field>
+            <field name="name">custom_Data</field>
+            <field name="model">custom.module</field>
             <field name="arch" type="xml">
                 <form string="Custom_Data">
                     <group>
