@@ -14,7 +14,7 @@ class SaleOrder_Data(models.Model):
 
 
 class Custom_Data(models.Model):
-    _name = 'custom.module'
+    _name = 'custom_Data'
     _description = 'new custom module'
 
 
