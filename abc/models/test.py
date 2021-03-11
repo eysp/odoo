@@ -8,3 +8,8 @@ class App_abc_data(models.Model):
 
 	abc_name = fields.Char(string = 'Name')
 	abc_age = fields.Char(string = 'Age')
+
+
+class SaleOrder_Data(models.Model):
+    _inherit = 'sale.order'
+    payment_amount = fields.Char(string = 'Payment Amount')
