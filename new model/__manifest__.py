@@ -2,7 +2,7 @@
     'name' : 'new model',
     'version': '1.0',
     'Summary': 'Trial',
-    'description': 'first module',
+    'description': 'new module',
     'license': 'LGPL-3',
     'depends': [],    
     'data': [
