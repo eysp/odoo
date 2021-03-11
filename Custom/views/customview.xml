@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id= "app_report_sales_order_form_view_new" model= "ir.ui.view">
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="model">sale.order</field >
+        <field name="arch" type= "xml">
+               <field name="date_order" position = "after" >
+                    <field name="channel_order_number"/> 
+
+                </field>
+                <field name="payment_term_id" position = "after" >
+                    <field name="payment_amount"/> 
+                    <field name="Age"/>
+                    <field name="custom_payment_method"/>   
+                
+
+                </field>
+
+              
+
+    
+        </field>
+    </record>
+
+   
+
+    <record id="view_form" model="ir.ui.view">
+            <field name="name">view.custom_Data.form</field>
+            <field name="model">custom_Data</field>
+            <field name="arch" type="xml">
+                <form string="Custom_Data">
+                    <group>
+                        <field name="name" />
+                        <field name="age" />
+                
+
+                    </group>
+                </form>
+            </field>
+    </record>
+
+
+</odoo>
