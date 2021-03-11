@@ -1,7 +1,7 @@
 {
-    'name' : 'Test model',
-    'version': '1.2',
-    'Summary': 'Trial new custom model',
+    'name' : 'new model',
+    'version': '1.0',
+    'Summary': 'Trial',
     'description': 'first module',
     'license': 'LGPL-3',
     'depends': [],    
