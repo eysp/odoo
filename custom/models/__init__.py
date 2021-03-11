@@ -1,1 +1,1 @@
-import . from custom
+from . import custom
