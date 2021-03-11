@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+
+    <!-- form view of the patient model  -->
+    <record id="patient_form" model="ir.ui.view">
+        <field name="name">custom.module.form</field>
+        <field name="model">custom.module</field>
+        <field name="arch" type="xml">
+            <form string = "custom">
+                <field name = "name"/>
+                <field name = "age"/>
+                <field name = "payment_method"/>
+                
+            </form>
+        </field>
+    </record>
+
+   
+</odoo>
