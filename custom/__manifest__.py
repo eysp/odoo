@@ -6,7 +6,7 @@
     'license': 'LGPL-3',
     'depends': [],    
     'data': [
-        #'views/patient.xml'
+        'views/custom.xml'
     ],
     'installable': True,
     'application':True,
