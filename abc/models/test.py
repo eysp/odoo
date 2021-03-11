@@ -12,4 +12,4 @@ class App_abc_data(models.Model):
 
 class SaleOrder_Data(models.Model):
     _inherit = 'sale.order'
-    payment_amount = fields.Char(string = 'Payment Amount')
+    custom_payment_method = fields.Char(string = 'Custom Payment Method')
