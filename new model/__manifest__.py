@@ -4,9 +4,7 @@
     'Summary': 'Trial new custom model',
     'description': 'first module',
     'license': 'LGPL-3',
-    'depends': [
-        'sale_management','website','account_accountant'
-    ],    
+    'depends': [],    
     'data': [
         #'data/data.xml',
         #'reports/report_tax_invoice.xml',
