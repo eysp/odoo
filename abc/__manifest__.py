@@ -1,7 +1,7 @@
 {
     'name' : 'abc reports',
     'version': '1.2',
-    'Summary': 'abc Report Prints',
+    'Summary': 'abcd Report Prints',
     'description': 'To print the new report',
     'license': 'LGPL-3',
     'depends': [],    
