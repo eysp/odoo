@@ -5,7 +5,9 @@ class SaleOrder_Data(models.Model):
     _inherit = 'sale.order'
     #description = fields.Char(string='Description')
 
-    custom_payment_method = fields.Many2one('custom.module',string = 'Custom Payment Method')
+    #custom_payment_method = fields.Many2one('custom.module',string = 'Custom Payment Method')
+    custom_payment_method = fields.Char(string = 'Custom Payment Method')
+
 
 
 
@@ -16,4 +18,5 @@ class Custom_Data(models.Model):
 
 
     name = fields.Char(string = 'Name')
-    age = fields.Many2one('sale.order') 
+    age = fields.Char('Age') 
+    #age = fields.Many2one('sale.order') 
