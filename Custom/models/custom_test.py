@@ -9,7 +9,7 @@ class SaleOrder_Data(models.Model):
     custom_payment_method = fields.Char(string = 'Custom Payment Method')
 
 
-class SaleOrder_Data(models.Model):
+class SaleOrder_Data2(models.Model):
     _inherit = ['sale.report','SaleOrder_Data']
     #description = fields.Char(string='Description')
 
