@@ -23,7 +23,7 @@
               <!-- <filter string="Company" name="parent_id" context="{'group_by': 'parent_id'}"></filter>                                            
               <filter string="Country" name="country_id" context="{'group_by': 'country_id'}"></filter>                                            
               <filter string="Sales person" name="salesperson_id" context="{'group_by': 'user_id'}"></filter>-->  
-            <filter string="P M" name="payment_method" context="{'group_by':'payment_method'}"/>                                       -->
+            <filter string="P M" name="payment_method" context="{'group_by':'custom_payment_method'}"></filter>                                       -->
             </group>                                    
           </search>                                
         </field>                            
