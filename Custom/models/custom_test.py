@@ -9,16 +9,6 @@ class SaleOrder_Data(models.Model):
     custom_payment_method = fields.Char(string = 'Custom Payment Method')
 
 
-class SaleOrder_Data2(models.Model):
-    _inherit = ['sale.report','SaleOrder_Data']
-    #description = fields.Char(string='Description')
-
-    #custom_payment_method = fields.Many2one('custom.module',string = 'Custom Payment Method')
-    custom_payment_method = fields.Char(string = 'Custom Payment Method')
-
-
-
-
 
 class Custom_Data(models.Model):
     _name = 'custom.module'
