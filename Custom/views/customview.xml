@@ -28,11 +28,11 @@
                     <field name="custom_payment_method"/>
                 </xpath>-->
 
-                <!--<search string="Sales Analysis">
+                <search string="Sales Analysis">
                     <group expand="1" string="Group By">
                         <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
                     </group>
-                </search>-->        
+                </search>        
 
 
 
