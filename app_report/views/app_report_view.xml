@@ -6,14 +6,14 @@
         <field name="model">sale.order</field >
         <field name="arch" type= "xml">
                <field name="date_order" position = "after" >
-                    <field name="channel_order_number"/>   
+                    <!-- <field name="channel_order_number"/>    -->
                 </field>
                 <field name="payment_term_id" position = "after" >
-                    <field name="payment_type"/> 
+                    <!-- <field name="payment_type"/> 
                     <field name="description_1"/>
                     <field name="unique_id"/> 
                     <field name="check_it" string = "check it by view"/>
-                    <field name="result" />
+                    <field name="result" /> -->
 
 
                 </field>
