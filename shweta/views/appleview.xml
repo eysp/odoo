@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_project_task_tag" model="ir.ui.view">
+        <field name="name">project.task.tag.view</field>
+        <field name="model">project.task.tag</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                   <group>
+                       <group>
+                           <field name="name"/>
+                           <field name="task_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_task_view_form_inherit" model="ir.ui.view">
+       <field name="name">project.task.form.inherit</field>
+       <field name="model">project.task</field>
+       <field name="inherit_id" ref="project.view_task_form2"/>
+       <field name="arch" type="xml">
+           <xpath expr="//sheet/group/group" position="inside">
+               <field name="task_tag_id"/>
+           </xpath>
+       </field>
+    </record>
+
+
+    <record id="view_task_search_form_inherit" model="ir.ui.view">
+       <field name="name">project.task.search.form.inherit</field>
+       <field name="model">project.task</field>
+       <field name="inherit_id" ref="project.view_task_search_form"/>
+       <field name="arch" type="xml">
+           <xpath expr="//search/group" position="inside">
+               <filter string="Task Tag" name="Task Tag" context="{'group_by':'task_tag_id'}"/>
+           </xpath>
+       </field>
+    </record>
+
+
+</odoo>

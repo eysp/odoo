@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id= "app_report_sales_order_form_view_new" model= "ir.ui.view">
-        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <!--<field name="inherit_id" ref="sale.view_order_product_search"/>-->
         <!--<field name="inherit_id" ref="sale.view_sales_order_filter"/>-->
-        <!--<field name="inherit_id" ref="sale.view_order_form"/>-->
+        <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="model">sale.order</field >
         <field name="arch" type= "xml">
                
 
-                </field>
+                
                 <field name="partner_id" position = "after" >
                 
                     <field name="custom_payment_method"/>   
@@ -24,11 +24,15 @@
                     <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
                 </xpath>-->
 
-                <search string="Sales Analysis">
+                <!--<xpath expr="//filter[@name='Order Date'] position="after">
+                    <field name="custom_payment_method"/>
+                </xpath>-->
+
+                <!--<search string="Sales Analysis">
                     <group expand="1" string="Group By">
                         <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
                     </group>
-                </search>        
+                </search>-->        
 
 
 
