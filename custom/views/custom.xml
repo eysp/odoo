@@ -14,8 +14,8 @@
     </record>
 
     <record id="view_custom_search" model="ir.ui.view">                                
-        <field name="name">sale.report.search</field>                                
-        <field name="model">sale.report</field>                                
+        <field name="name">sale.order.search</field>                                
+        <field name="model">sale.order</field>                                
         <field name="arch" type="xml">                                    
           <search>
             <field name="custom_payment_method" />                                  
