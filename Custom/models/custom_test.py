@@ -18,5 +18,5 @@ class Custom_Data(models.Model):
 
 
     name = fields.Char(string = 'Name')
-    age = fields.Char('Age') 
+    age = fields.Char(string = 'Age') 
     #age = fields.Many2one('sale.order') 
