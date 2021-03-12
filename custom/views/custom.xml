@@ -13,21 +13,7 @@
         </field>
     </record>
 
-    <record id="sale.view_quotation_tree_with_onboarding" model="ir.ui.view">                                
-        <field name="name">sale.view.quotation.tree.with.onboarding.search</field>                                
-        <field name="model">sale.order</field>                                
-        <field name="arch" type="xml">                                    
-          <search>
-            <field name="custom_payment_method" />                                  
-            <group string="Group By">                                            
-              <!-- <filter string="Company" name="parent_id" context="{'group_by': 'parent_id'}"></filter>                                            
-              <filter string="Country" name="country_id" context="{'group_by': 'country_id'}"></filter>                                            
-              <filter string="Sales person" name="salesperson_id" context="{'group_by': 'user_id'}"></filter>-->  
-            <filter string="P M" name="payment_method" context="{'group_by':'custom_payment_method'}"></filter>                                       -->
-            </group>                                    
-          </search>                                
-        </field>                            
-      </record>
+    
     
 
     <!-- form view of the patient model  -->
