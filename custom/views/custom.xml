@@ -35,11 +35,11 @@
 
     <record id="view_sales_order_filter_inherit" model="ir.ui.view">
         <field name="name">sale.order.search.inherit</field>
-        <field name="model">sale.report</field>
-        <field name="inherit_id" ref="sale.view_order_product_search"/>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
         
         <field name="arch" type="xml">
-            <search string="Sales Analysis">
+            <search string="Search Sales Order">
                 <field name="custom_payment_method" />
                 <group expand="1" string="Group By">
                     <filter string="P M" name="p m" context="{'group_by':'custom_payment_method'}"/>
