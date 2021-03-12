@@ -12,19 +12,7 @@
         </field>
     </record>
 
-    <record id="view_sales_order_filter_inherit" model="ir.ui.view">
-        <field name="name">sale.order.search.inherit</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
-        <field name="arch" type="xml">
-            <!-- <xpath expr="//filter[@name='salesperson']" position="after">
-                <field name="company_id" />
-               </xpath> -->
-            <xpath expr="//group/field[@name='user_id']" position="after">
-                <field name="company_id"/>
-            </xpath> 
-        </field>
-   </record>
+  
     
 
     <!-- form view of the patient model  -->
