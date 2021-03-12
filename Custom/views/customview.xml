@@ -19,8 +19,7 @@
                 
                 
 
-                <!--<xpath expr="//group[@string='Group By']/filter[@string='date_order']" position="after">-->
-                <xpath expr="//search/group" position="inside">
+                <xpath expr="//group/filter[@string='date_order']" position="after">
                     <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
                 </xpath>-->
 
