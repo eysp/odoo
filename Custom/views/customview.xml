@@ -55,8 +55,8 @@
 
     <record id= "view_report_sales_order_form_view_new" model= "ir.ui.view">
         
-        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
-        <field name="model">sale.order</field >
+        <field name="inherit_id" ref="sale.view_order_product_search"/>
+        <field name="model">sale.report</field >
         <field name="arch" type= "xml">
                
             <xpath expr="//search/group" position="inside">
