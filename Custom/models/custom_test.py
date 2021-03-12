@@ -8,8 +8,8 @@ class SaleOrder_Data(models.Model):
     #custom_payment_method = fields.Many2one('custom.module',string = 'Custom Payment Method')
     custom_payment_method = fields.Char(string = 'Custom Payment Method')
 
-    def init(self, cr):
-    	cr.execute("SELECT custom_payment_method FROM sale.order LEFT JOIN sale.report ON sale.order.Id = sale.report.id")
+    #def init(self, cr):
+    #	cr.execute("SELECT custom_payment_method FROM sale.order LEFT JOIN sale.report ON sale.order.Id = sale.report.id")
 
 
 
