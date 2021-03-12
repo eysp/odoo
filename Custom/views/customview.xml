@@ -44,7 +44,7 @@
                    <group>
                        <group>
                            <field name="name"/>
-                           <field name="age"/>
+                           <field name="age" invisible="1"/>
                         </group>
                     </group>
                 </sheet>
