@@ -5,9 +5,6 @@ class SaleOrder_Data(models.Model):
     _inherit = 'sale.order'
     #description = fields.Char(string='Description')
 
-    channel_order_number = fields.Char(string = 'Channel Order No.')
-    payment_amount = fields.Char(string = 'Payment Amount')
-    Age = fields.Float('Age', digits=(12,4))
     custom_payment_method = fields.Char(string = 'Custom Payment Method')
 
 

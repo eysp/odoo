@@ -1,0 +1,19 @@
+{
+    'name' : 'Apple',
+    'version': '1.2',
+    'Summary': 'Custom Report Prints',
+    'description': 'To print the new report',
+    'license': 'LGPL-3',
+    'depends': [
+        'sale_management','website','account_accountant'
+    ],    
+    'data': [
+        #'data/data.xml',
+        #'reports/report_tax_invoice.xml',
+        #'reports/reports.xml',
+        'views/appleview.xml'
+    ],
+    'installable': True,
+    'application':True,
+    'auto_install':False
+}
