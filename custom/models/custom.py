@@ -7,8 +7,8 @@ class SaleOrder_Data(models.Model):
     custom_payment_method  = fields.Char(string='P M')
     
     
-env.cr.execute("SELECT custom_payment_method FROM sale.order LEFT JOIN sale.order ON sale.order.Id = sale.report.id")
-env.cr.commit()  
+#self.env.cr.execute("SELECT custom_payment_method FROM sale.order LEFT JOIN sale.order ON sale.order.Id = sale.report.Id")
+#self.env.cr.commit()  
 
 class HospitalPatient(models.Model):
     _name = 'custom.module'
