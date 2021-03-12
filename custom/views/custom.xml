@@ -13,8 +13,8 @@
         </field>
     </record>
 
-    <record id="view_custom_search" model="ir.ui.view">                                
-        <field name="name">view.custom.search</field>                                
+    <record id="sale.view_quotation_tree_with_onboarding" model="ir.ui.view">                                
+        <field name="name">sale.view.quotation.tree.with.onboarding.search</field>                                
         <field name="model">sale.order</field>                                
         <field name="arch" type="xml">                                    
           <search>
