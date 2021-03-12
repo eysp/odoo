@@ -13,10 +13,6 @@
     </record>
 
 
-    
-  
-    
-
     <!-- form view of the patient model  -->
     <record id="patient_form" model="ir.ui.view">
         <field name="name">custom.module.form</field>
@@ -28,7 +24,6 @@
                 <field name = "age"/>
                 <field name = "payment_method"/>
                 </group> 
-                
             </form>
         </field>
     </record>
@@ -37,31 +32,29 @@
         <field name="name">sale.order.search.inherit</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_sales_order_filter"/>
-        
         <field name="arch" type="xml">
             <search string="Search Sales Order">
                 <field name="custom_payment_method" />
                 <group expand="1" string="Group By">
                     <filter string="P M" name="p m" context="{'group_by':'custom_payment_method'}"/>
-                    <!-- <filter string="Sales Team" name="sales_channel" context="{'group_by':'team_id'}"/>
-                    <filter string="Customer" name="Customer" context="{'group_by':'partner_id'}"/>
-                    <filter string="Customer Country" name="country_id" context="{'group_by':'country_id'}"/>
-                    <filter string="Customer Industry" name="industry_id" context="{'group_by':'industry_id'}"/>
-                    <filter string="Product" name="Product" context="{'group_by':'product_id'}"/>
-                    <filter string="Product Category" name="Category" context="{'group_by':'categ_id'}"/>
-                    <filter name="status" string="Status" context="{'group_by':'state'}"/>
-                    <filter string="Company" name="company" groups="base.group_multi_company" context="{'group_by':'company_id'}"/>
-                    <separator/>
-                    <filter string="Order Date" name="date" context="{'group_by':'date'}"/> -->
                 </group>
             </search>
         </field>
    </record>
 
-
-    
-
-    <!-- <filter string="P M" name="payment_method" context="{'group_by':'payment_method'}"/> -->
+   <record id="view_sales_order_filter_inherit1" model="ir.ui.view">
+    <field name="name">sale.report.search.inherit</field>
+    <field name="model">sale.report</field>
+    <field name="inherit_id" ref="	sale.view_order_product_search"/>
+    <field name="arch" type="xml">
+        <search string="Search Sales Order">
+            <field name="custom_payment_method" />
+            <group expand="1" string="Group By">
+                <filter string="P M" name="p m" context="{'group_by':'custom_payment_method'}"/>
+            </group>
+        </search>
+    </field>
+    </record>
 
     <record id="action_custom" model="ir.actions.act_window">
         <field name="name">Customs</field>
@@ -78,10 +71,4 @@
 
     <menuitem id="custom_root" name = "Custom" />
     <menuitem id="custom_child" name = "customs" parent = "custom_root" action="action_custom"/>
-
-    
-
-    
-
-   
 </odoo>

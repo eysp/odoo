@@ -5,9 +5,7 @@ from odoo import models, fields, api
 class SaleOrder_Data(models.Model):
     _inherit = 'sale.order'
     custom_payment_method  = fields.Char(string='P M')
-
-
-    
+  
 
 class HospitalPatient(models.Model):
     _name = 'custom.module'
