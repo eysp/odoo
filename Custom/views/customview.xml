@@ -16,18 +16,11 @@
 
                 </field>
 
-                <group expand="0" string="Group By">
-                        <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
-                </group>
                 
                 
 
-
-
-
-
-
-                <!--<xpath expr="//group[@string='Group By']/filter[@string='date_order']" position="after">
+                <!--<xpath expr="//group[@string='Group By']/filter[@string='date_order']" position="after">-->
+                <xpath expr="//search/group" position="inside">
                     <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
                 </xpath>-->
 
