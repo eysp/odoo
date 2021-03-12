@@ -41,6 +41,8 @@
         </field>
     </record>
 
+    <filter string="P M" name="payment_method" context="{'group_by':'payment_method'}"/>
+
     <record id="action_custom" model="ir.actions.act_window">
         <field name="name">Customs</field>
         <field name="type">ir.actions.act_window</field>
