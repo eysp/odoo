@@ -62,6 +62,7 @@
             <xpath expr="//sheet/group/group" position="inside">
                <filter string="Custom Payment Method" name="Custom Payment Method" context="{'group_by':'custom_payment_method'}"/>
             </xpath>
+        </field>    
     </record>
 
 </odoo>
