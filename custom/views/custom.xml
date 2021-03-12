@@ -38,7 +38,8 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_sales_order_filter"/>
         <field name="arch" type="xml">
-            <xpath expr="//filter[@name='customer']" position="replace">
+            <xpath expr="//filter[@name='customer']" position="after">
+                <field name="custom_payment_method" />
                </xpath>
             </field>
    </record>
