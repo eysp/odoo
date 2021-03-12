@@ -2,7 +2,15 @@ from odoo import models, fields, api
 
 
 class SaleOrder_Data(models.Model):
-    _inherit = ['sale.order','sale.report']
+    _inherit = 'sale.order'
+    #description = fields.Char(string='Description')
+
+    #custom_payment_method = fields.Many2one('custom.module',string = 'Custom Payment Method')
+    custom_payment_method = fields.Char(string = 'Custom Payment Method')
+
+
+class SaleOrder_Data(models.Model):
+    _inherit = ['sale.report','SaleOrder_Data']
     #description = fields.Char(string='Description')
 
     #custom_payment_method = fields.Many2one('custom.module',string = 'Custom Payment Method')
