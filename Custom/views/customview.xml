@@ -16,7 +16,7 @@
 
                 </field>
                 <xpath expr="//group[@string='Group By...']/filter[@name='Order Date']" position="after">
-                    <filter string="Custom Payment Method" name = 'custom_payment_method' context="{'group_by':'custom_payment_method'}"/>
+                    <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
                 </xpath>
 
               
