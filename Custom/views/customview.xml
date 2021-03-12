@@ -21,7 +21,7 @@
 
                 <xpath expr="//group/filter[@string='date_order']" position="after">
                     <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
-                </xpath>-->
+                </xpath>
 
               
 
