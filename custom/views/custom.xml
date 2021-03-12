@@ -35,14 +35,14 @@
 
     <record id="view_sales_order_filter_inherit" model="ir.ui.view">
         <field name="name">sale.order.search.inherit</field>
-        <field name="model">sale.order</field>
+        <field name="model">sale.report</field>
         <field name="inherit_id" ref="sale.view_sales_order_filter"/>
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='customer']" position="replace">
             </xpath>
-            <xpath expr="//field[@name='user_id']" position="after">
+            <!-- <xpath expr="//field[@name='user_id']" position="after">
                 <field name="team_id"/>
-            </xpath>
+            </xpath> -->
             </field>
    </record>
 
