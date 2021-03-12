@@ -47,7 +47,7 @@
         <field name="model">sale.report</field>
         <field name="inherit_id" ref="sale.view_order_product_search"/>
         <field name="arch" type="xml">
-            <search string="Search Sales Order">
+            <search string="Sales Analysis">
                 <field name="custom_payment_method" />
                 <group expand="1" string="Group By">
                     <filter string="P M" name="p m" context="{'group_by':'custom_payment_method'}"/>
