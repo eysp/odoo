@@ -20,8 +20,8 @@
                     <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
                 </xpath>-->
 
-                <xpath expr="//filter[@name='Order Date']" position="after">
-                    <field name="custom_payment_method"/>
+                <xpath expr="//search/group" position="inside">
+                    <filter string="Custom Payment Method" domain="[]" context="{'group_by':'custom_payment_method'}"/>
                 </xpath>
 
 
