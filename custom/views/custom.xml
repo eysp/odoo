@@ -18,7 +18,7 @@
         <field name="inherit_id" ref="sale.view_sales_order_filter"/>
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='salesperson']" position="after">
-                <field name="P M" />
+                <field name="custom_payment_method" />
                </xpath>
             </field>
    </record>
