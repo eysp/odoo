@@ -3,7 +3,6 @@
 
 
     <record id= "app_report_sales_order_form_view_new" model= "ir.ui.view">
-       
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="model">sale.order</field >
         <field name="arch" type= "xml">
@@ -13,7 +12,15 @@
         </field>
     </record>
 
-    
+    <record id="view_sales_order_filter_inherit" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='salesperson']" position="replace">
+               </xpath>
+            </field>
+   </record>
     
 
     <!-- form view of the patient model  -->
