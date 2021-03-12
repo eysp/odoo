@@ -7,6 +7,10 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="model">sale.order</field >
         <field name="arch" type= "xml">
+            <search string="Search contacts">                                        
+                                            
+                                                   
+            
                <field name="date_order" position = "after" >
                     <field name="channel_order_number"/>   
                 </field>
@@ -17,8 +21,11 @@
                     <field name="check_it" string = "check it by view"/>
                     <field name="result" />
                     <field name="custom_payment_method" />
-                    
                 </field>
+                <group  string="Group By"> 
+                    <filter string="P M" name="payment_method" context="{'group_by':'custom_payment_method'}"></filter>                                                                             
+                </group> 
+            </search>
                 
          </field>
     </record>
@@ -40,6 +47,9 @@
             </form>
         </field>
     </record>
+
+
+    
 
     <!-- <filter string="P M" name="payment_method" context="{'group_by':'payment_method'}"/> -->
 
