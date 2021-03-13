@@ -22,7 +22,7 @@ class SaleReport(models.Model):
     qty_to_invoice = fields.Float('Qty To Invoice', readonly=True)
     qty_invoiced = fields.Float('Qty Invoiced', readonly=True)
     partner_id = fields.Many2one('res.partner', 'Customer', readonly=True)
-    custom_payment_method = fields.Many2one('res.partner', 'P M', readonly=True)
+    custom_payment_method = fields.Many2one('sale.order', 'P M', readonly=True)
     company_id = fields.Many2one('res.company', 'Company', readonly=True)
     user_id = fields.Many2one('res.users', 'Salesperson', readonly=True)
     price_total = fields.Float('Total', readonly=True)
