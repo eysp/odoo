@@ -94,10 +94,7 @@ class SaleReport(models.Model):
         """ % from_clause
 
         groupby_ = """
-            l.product_id,
-            l.order_id,
-            t.uom_id,
-            t.categ_id,
+            
             s.name,
             s.date_order,
             s.partner_id,
@@ -110,12 +107,7 @@ class SaleReport(models.Model):
             s.source_id,
             s.pricelist_id,
             s.analytic_account_id,
-            s.team_id,
-            p.product_tmpl_id,
-            partner.country_id,
-            partner.industry_id,
-            partner.commercial_partner_id,
-            l.discount,
+            s.team_id
             s.id %s
         """ % (groupby)
 
