@@ -28,7 +28,7 @@
         </field>
     </record>
 
-    <!-- <record id="view_sales_order_filter_inherit" model="ir.ui.view">
+    <record id="view_sales_order_filter_inherit" model="ir.ui.view">
         <field name="name">sale.order.search.inherit</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_sales_order_filter"/>
@@ -40,9 +40,9 @@
                 </group>
             </search>
         </field>
-   </record> -->
+   </record>
 
-   <record id="view_sales_order_filter_inherit1" model="ir.ui.view">
+   <!-- <record id="view_sales_order_filter_inherit1" model="ir.ui.view">
         <field name="name">sale.report.search.inherit</field>
         <field name="model">sale.report</field>
         <field name="inherit_id" ref="sale.view_order_product_search"/> 
@@ -54,7 +54,7 @@
                 </group>
             </search>
         </field>
-    </record>
+    </record> -->
 
     <record id="action_custom" model="ir.actions.act_window">
         <field name="name">Customs</field>
