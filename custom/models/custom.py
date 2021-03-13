@@ -6,9 +6,9 @@ class SaleOrder_Data(models.Model):
     _inherit = 'sale.order'
     custom_payment_method  = fields.Char(string='P M')
 
-class SaleReport_Data(models.Model):
-    _inherit = 'sale.report'
-    custom_payment_method  = fields.Char(string='P M')
+# class SaleReport_Data(models.Model):
+#     _inherit = 'sale.report'
+#     custom_payment_method  = fields.Char(string='P M')
     
     
 #self.env.cr.execute("SELECT custom_payment_method FROM sale.order LEFT JOIN sale.order ON sale.order.Id = sale.report.Id")
