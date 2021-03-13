@@ -8,7 +8,10 @@
         'sale_management','website','account_accountant'
     ],    
     'data': [
-        'views/custom.xml'
+        'views/custom.xml',
+        'report/custom_report.py',
+        'report/custom_report_views.xml'
+        
     ],
     'installable': True,
     'application':True,
