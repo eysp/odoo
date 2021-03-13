@@ -12,18 +12,6 @@
         </field>
     </record>
 
-    <record id="custom_tree" model="ir.ui.view">
-        <field name="name">custom.module.tree</field>
-        <field name="model">sale.order</field>
-        <field name="arch" type="xml">
-            <tree string = "custom">
-                <field name="custom_payment_method" />
-                
-                
-            </tree>
-        </field>
-    </record>
-
 
     <!-- form view of the patient model  -->
     <record id="patient_form" model="ir.ui.view">
@@ -54,7 +42,7 @@
         </field>
    </record>
 
-   <!-- <record id="view_sales_order_filter_inherit1" model="ir.ui.view">
+    <record id="view_sales_order_filter_inherit1" model="ir.ui.view">
         <field name="name">sale.report.search.inherit</field>
         <field name="model">sale.report</field>
         <field name="inherit_id" ref="sale.view_order_product_search"/> 
@@ -66,7 +54,7 @@
                 </group>
             </search>
         </field>
-    </record> -->
+    </record> 
 
     <record id="action_custom" model="ir.actions.act_window">
         <field name="name">Customs</field>
