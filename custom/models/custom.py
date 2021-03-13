@@ -21,7 +21,7 @@ class SaleOrder_Data(models.Model):
 
 class HospitalPatient(models.Model):
     _name = 'custom.module'
-    _description = 'created for custom module'
+    _description = 'created for custom module1'
 
     name = fields.Char(string='Name', required= True)
     age = fields.Integer('Age')
