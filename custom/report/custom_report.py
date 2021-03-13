@@ -60,18 +60,6 @@ class SaleReport(models.Model):
         with_ = ("WITH %s" % with_clause) if with_clause else ""
 
         select_ = """
-            coalesce(min(l.id), -s.id) as id,
-            l.product_id as product_id,
-            t.uom_id as product_uom,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(l.product_uom_qty / u.factor * u2.factor) ELSE 0 END as product_uom_qty,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(l.qty_delivered / u.factor * u2.factor) ELSE 0 END as qty_delivered,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(l.qty_invoiced / u.factor * u2.factor) ELSE 0 END as qty_invoiced,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(l.qty_to_invoice / u.factor * u2.factor) ELSE 0 END as qty_to_invoice,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(l.price_total / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) ELSE 0 END as price_total,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(l.price_subtotal / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) ELSE 0 END as price_subtotal,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(l.untaxed_amount_to_invoice / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) ELSE 0 END as untaxed_amount_to_invoice,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(l.untaxed_amount_invoiced / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) ELSE 0 END as untaxed_amount_invoiced,
-            count(*) as nbr,
             s.name as name,
             s.date_order as date,
             s.state as state,
@@ -86,16 +74,8 @@ class SaleReport(models.Model):
             t.categ_id as categ_id,
             s.pricelist_id as pricelist_id,
             s.analytic_account_id as analytic_account_id,
-            s.team_id as team_id,
-            p.product_tmpl_id,
-            partner.country_id as country_id,
-            partner.industry_id as industry_id,
-            partner.commercial_partner_id as commercial_partner_id,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(p.weight * l.product_uom_qty / u.factor * u2.factor) ELSE 0 END as weight,
-            CASE WHEN l.product_id IS NOT NULL THEN sum(p.volume * l.product_uom_qty / u.factor * u2.factor) ELSE 0 END as volume,
-            l.discount as discount,
-            CASE WHEN l.product_id IS NOT NULL THEN sum((l.price_unit * l.product_uom_qty * l.discount / 100.0 / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END))ELSE 0 END as discount_amount,
-            s.id as order_id
+            s.team_id as team_id
+            
         """
 
         for field in fields.values():
@@ -146,16 +126,16 @@ class SaleReport(models.Model):
         tools.drop_view_if_exists(self.env.cr, self._table)
         self.env.cr.execute("""CREATE or REPLACE VIEW %s as (%s)""" % (self._table, self._query()))
 
-class SaleOrderReportProforma(models.AbstractModel):
-    _name = 'report.sale.report_saleproforma'
-    _description = 'Proforma Report'
+# class SaleOrderReportProforma(models.AbstractModel):
+#     _name = 'report.sale.report_saleproforma'
+#     _description = 'Proforma Report'
 
-    @api.model
-    def _get_report_values(self, docids, data=None):
-        docs = self.env['sale.order'].browse(docids)
-        return {
-            'doc_ids': docs.ids,
-            'doc_model': 'sale.order',
-            'docs': docs,
-            'proforma': True
-        }
+#     @api.model
+#     def _get_report_values(self, docids, data=None):
+#         docs = self.env['sale.order'].browse(docids)
+#         return {
+#             'doc_ids': docs.ids,
+#             'doc_model': 'sale.order',
+#             'docs': docs,
+#             'proforma': True
+#         }
