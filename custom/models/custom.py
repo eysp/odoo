@@ -4,7 +4,9 @@ from odoo import models, fields, api
 
 class SaleOrder_Data(models.Model):
     _inherit = 'sale.order'
-    custom_payment_method  = fields.Char(string='P M')
+    # custom_payment_method  = fields.Char(string='P M')
+    custom_payment_method = fields.Many2one(
+        'res.users', string='P M')
 
 # class SaleReport_Data(models.Model):
 #     _inherit = 'sale.report'
