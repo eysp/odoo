@@ -5,7 +5,7 @@
     'description': 'To print the new report',
     'license': 'LGPL-3',
     'depends': [
-        'sale_management','website','account_accountant'
+        'sale_management','website','account_accountant','sales_team'
     ],    
     'data': [
         'reports/report_tax_invoice.xml',
