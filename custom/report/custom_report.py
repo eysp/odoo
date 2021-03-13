@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-
 from odoo import tools
 from odoo import api, fields, models
 
@@ -25,6 +22,7 @@ class SaleReport(models.Model):
     qty_to_invoice = fields.Float('Qty To Invoice', readonly=True)
     qty_invoiced = fields.Float('Qty Invoiced', readonly=True)
     partner_id = fields.Many2one('res.partner', 'Customer', readonly=True)
+    custom_payment_method = fields.Many2one('sale.order', 'P M', readonly=True)
     company_id = fields.Many2one('res.company', 'Company', readonly=True)
     user_id = fields.Many2one('res.users', 'Salesperson', readonly=True)
     price_total = fields.Float('Total', readonly=True)
@@ -79,6 +77,7 @@ class SaleReport(models.Model):
             s.state as state,
             s.partner_id as partner_id,
             s.user_id as user_id,
+            s.custom_payment_method as custom_payment_method,
             s.company_id as company_id,
             s.campaign_id as campaign_id,
             s.medium_id as medium_id,
@@ -123,6 +122,7 @@ class SaleReport(models.Model):
             s.date_order,
             s.partner_id,
             s.user_id,
+            s.custom_payment_method,
             s.state,
             s.company_id,
             s.campaign_id,
