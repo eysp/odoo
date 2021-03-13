@@ -10,7 +10,9 @@
     'data': [
         'views/custom.xml',
         'report/custom_report.py',
-        'report/custom_report_views.xml'
+        'report/custom_report_views.xml',
+        'report/custom_report_templates.xml',
+        'report/custom_report.xml'
         
     ],
     'installable': True,
