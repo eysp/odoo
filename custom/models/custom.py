@@ -9,7 +9,7 @@ from odoo import api, fields, models, SUPERUSER_ID, _
 class SaleOrder_Data(models.Model):
     _inherit = 'sale.order'
     custom_payment_method  = fields.Char(string='P M')
-
+    
     
 
 # class SaleReport_Data(models.Model):
