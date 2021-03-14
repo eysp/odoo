@@ -8,6 +8,7 @@
         <field name="arch" type= "xml">
                <field name="payment_term_id" position = "after" >
                     <field name="custom_payment_method" />
+                    <field name="partner_id1" />
                 </field>
         </field>
     </record>

@@ -1,10 +1,20 @@
-from odoo import models, fields, api
+from datetime import datetime, timedelta
+from functools import partial
+from itertools import groupby
+
+from odoo import api, fields, models, SUPERUSER_ID, _
 
 
 
 class SaleOrder_Data(models.Model):
     _inherit = 'sale.order'
     custom_payment_method  = fields.Char(string='P M')
+
+    partner_id1 = fields.Many2one(
+        'res.partner', string='Customer1', readonly=True,
+        states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
+        required=True, change_default=True, index=True, tracking=1,
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",)
     # custom_payment_method = fields.Many2one(
     #     'res.partner', string='P M', readonly=True,
     #     states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
