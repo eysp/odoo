@@ -33,7 +33,7 @@ class SaleReport(models.Model):
         """ % from_clause
 
         groupby_ = """
-            s.partner_id1,
+            s.partner_id1
             %s
         """ % (groupby)
 
