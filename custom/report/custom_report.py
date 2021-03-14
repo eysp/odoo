@@ -22,7 +22,13 @@ class SaleReport(models.Model):
 
         from_ = """
                 sale_order_line l
-                    join res_partner partner on s.partner_id = partner.id
+                      right outer join sale_order s on (s.id=l.order_id)
+                      join res_partner partner on s.partner_id = partner.id
+                        left join product_product p on (l.product_id=p.id)
+                            left join product_template t on (p.product_tmpl_id=t.id)
+                    left join uom_uom u on (u.id=l.product_uom)
+                    left join uom_uom u2 on (u2.id=t.uom_id)
+                    left join product_pricelist pp on (s.pricelist_id = pp.id)
                 %s
         """ % from_clause
 
