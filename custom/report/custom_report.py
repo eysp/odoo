@@ -50,7 +50,7 @@ class SaleReport(models.Model):
             """
                 CREATE OR REPLACE VIEW sale.report.search AS (
                 SELECT s.partner_id1 as partner_id1
-                FROM sale.order,sale.report 
+                FROM SaleOrder_Data,SaleReport 
                 WHERE s.partner_id1 = partner.id1
                 GROUP BY partner_id1)
             """ )
