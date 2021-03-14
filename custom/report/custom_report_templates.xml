@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <template id="report_saleorder_document">
     <t t-call="web.external_layout">
@@ -227,4 +227,4 @@
     </t>
 </template>
 
-</odoo>
+</odoo> -->
