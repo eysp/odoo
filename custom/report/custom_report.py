@@ -21,9 +21,8 @@ class SaleReport(models.Model):
             select_ += field
 
         from_ = """
-                
-                      join res_partner partner on s.partner_id1 = partner.id1
-                        
+                sale_order_line l
+                    join res_partner partner on s.partner_id = partner.id
                 %s
         """ % from_clause
 
