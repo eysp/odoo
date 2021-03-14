@@ -13,7 +13,7 @@ class SaleReport(models.Model):
 
         select_ = """
             
-            s.partner_id1 as partner_id1,
+            s.partner_id1 as partner_id1
             
         """
 
