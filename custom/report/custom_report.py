@@ -17,8 +17,8 @@ class SaleReport(models.Model):
             
         """
 
-        for field in fields.values():
-            select_ += field
+        # for field in fields.values():
+        #     select_ += field
 
         from_ = """
                 sale_order_line l
