@@ -25,7 +25,7 @@
     </record>
 
     <record id="view_order_product_search" model="ir.ui.view">
-        <field name="inherit_id" ref="sale.view_order_product_search"/>
+        <!-- <field name="inherit_id" ref="sale.view_order_product_search"/> -->
         <field name="name">sale.report.search</field>
         <field name="model">sale.report</field>
         <field name="arch" type="xml">
