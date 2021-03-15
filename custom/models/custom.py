@@ -8,7 +8,7 @@ from odoo import api, fields, models, SUPERUSER_ID, _
 
 class SaleOrder_Data(models.Model):
     _inherit = 'sale.order'
-    # custom_payment_method  = fields.Char(string='P M')
+    custom_payment_method  = fields.Char(string='P M')
     partner_id1 = fields.Many2one(
         'res.partner', string='Customer1', readonly=True,
         states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
