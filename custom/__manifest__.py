@@ -10,7 +10,7 @@
     'data': [
         'views/custom.xml',
         
-        'report/custom_report_views.xml',
+        # 'report/custom_report_views.xml',
         
     ],
     'installable': True,
