@@ -8,7 +8,7 @@
         <field name="arch" type= "xml">
                <field name="payment_term_id" position = "after" >
                      <field name="custom_payment_method" />
-                     <field name="partner_id1" /> 
+                     <!-- <field name="partner_id1" />  -->
                 </field>
         </field>
     </record>
@@ -30,7 +30,7 @@
         </field>
     </record>
 
-   <record id="view_order_product_search_inherit" model="ir.ui.view">
+   <!-- <record id="view_order_product_search_inherit" model="ir.ui.view">
         <field name="name">sale.report.search</field>
         <field name="model">sale.report</field>
         <field name="inherit_id" ref="sale.view_order_product_search"/>
@@ -44,7 +44,7 @@
                 </group>
             </search>
         </field>
-   </record>
+   </record> -->
 
     <!-- <record id="view_sales_order_filter_inherit1" model="ir.ui.view">
         <field name="name">sale.report.search.inherit</field>
