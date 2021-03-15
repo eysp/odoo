@@ -13,20 +13,7 @@
     </record>
 
 
-    <!-- form view of the patient model  -->
-    <record id="patient_form" model="ir.ui.view">
-        <field name="name">custom.module.form</field>
-        <field name="model">custom.module</field>
-        <field name="arch" type="xml">
-            <form string = "custom">
-                <group>
-                <field name = "name"/>
-                <field name = "age"/>
-                <field name = "payment_method"/>
-                </group> 
-            </form>
-        </field>
-    </record>
+    
 
     <record id="view_sales_order_filter_inherit" model="ir.ui.view">
         <field name="name">sale.order.search.inherit</field>
@@ -40,7 +27,7 @@
                 </group>
             </search>
         </field>
-   </record>
+    </record>
 
    <record id="custom_view_order_product_search" model="ir.ui.view">
         <field name="name">sale.report.search</field>

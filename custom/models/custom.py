@@ -18,7 +18,7 @@ class SaleOrder_Data(models.Model):
 
 
 class SaleReport(models.Model):
-    _inherit = "sale.report"
+    _inherit = 'sale.report'
     _description = "Sales Analysis Report"
     
 
@@ -35,8 +35,8 @@ class SaleReport(models.Model):
             
         """
 
-        # for field in fields.values():
-        #     select_ += field
+        for field in fields.values():
+            select_ += field
 
         from_ = """
                 sale_order_line l
@@ -65,13 +65,7 @@ class SaleReport(models.Model):
     
     
 
-# class SaleReport_Data(models.Model):
-#     _inherit = 'sale.report'
-#     custom_payment_method  = fields.Char(string='P M')
-    
-    
-#self.env.cr.execute("SELECT custom_payment_method FROM sale.order LEFT JOIN sale.order ON sale.order.Id = sale.report.Id")
-#self.env.cr.commit()  
+ 
 
 class HospitalPatient(models.Model):
     _name = 'custom.module'
